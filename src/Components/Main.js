@@ -3,13 +3,12 @@ import Card from "./Card"
 import axios from "axios";
 const Main=() =>{
     const [search, setSearch]=useState("");
-    const [bookData, setBookData]=useState([]);
+    const [bookData, setBookData]=useState([]);    
     const searchBook=(evt)=>{
         if(evt.key==="Enter")
         {
             axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyDh4MxVZ0u-yRyTTT_LYtrJUFAGvwOHmEI&maxResults=40').then(res=>setBookData(res.data.items))
             .catch(err=>console.log(err))
-            console.log(search)
         }
     }
     return(
